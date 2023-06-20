@@ -1,0 +1,21 @@
+.main-content {
+    display:flex;
+    justify-content:space-around;
+    font-size:35px;
+    color:white;
+}
+
+.result-link
+{
+    text-decoration: none;
+    color:#791517;
+    font-weight: 800;
+}
+
+
+svg
+{
+    width:1em;
+    height:1em;
+    font-weight: 600;
+}
