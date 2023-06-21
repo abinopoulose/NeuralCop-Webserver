@@ -58,19 +58,28 @@
             </li>
            
             <li class="dropdown @php App\Http\Controllers\HomeController::isRouteActive('add_police',$url) @endphp">
-              <a href="add_police" class="nav-link"><i data-feather="plus"></i><span>Add Police</span></a>
+              <a href="/add_police" class="nav-link"><i data-feather="plus"></i><span>Add Police</span></a>
             </li>
 
             <li class="dropdown @php App\Http\Controllers\HomeController::isRouteActive('police_list',$url) @endphp">
-              <a href="police_list" class="nav-link"><i data-feather="gitlab"></i><span>View Police</span></a>
+              <a href="/police_list" class="nav-link"><i data-feather="gitlab"></i><span>View Police</span></a>
             </li>
 
             <li class="dropdown @php App\Http\Controllers\HomeController::isRouteActive('add_security',$url) @endphp">
-              <a href="add_security" class="nav-link"><i data-feather="plus"></i><span>Add Security</span></a>
+              <a href="/add_security" class="nav-link"><i data-feather="plus"></i><span>Add Security</span></a>
             </li>
 
             <li class="dropdown @php App\Http\Controllers\HomeController::isRouteActive('security_list',$url) @endphp">
-              <a href="security_list" class="nav-link"><i data-feather="shield"></i><span>View Securities</span></a>
+              <a href="/security_list" class="nav-link"><i data-feather="shield"></i><span>View Securities</span></a>
+            </li>
+
+
+            <li class="dropdown @php App\Http\Controllers\HomeController::isRouteActive('threat_detected',$url) @endphp">
+              <a href="/threat_detected" class="nav-link"><i data-feather="shield"></i><span>Threat Detected</span></a>
+            </li>
+
+            <li class="dropdown @php App\Http\Controllers\HomeController::isRouteActive('threat_forwarded',$url) @endphp">
+              <a href="/threat_forwarded" class="nav-link"><i data-feather="shield"></i><span>Threat Forwarded</span></a>
             </li>
 
 

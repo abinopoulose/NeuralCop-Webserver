@@ -2,13 +2,13 @@
 @include('header')
 <section class="section">
          
-<form method="POST" action="new_police">
+<form method="POST" action="new_security">
 @csrf
 <div class="row">
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Add Police Officers</h4>
+                    <h4>Add Security Officers</h4>
                   </div>
                   <div class="card-body">
                     <div class="form-group row mb-4">
