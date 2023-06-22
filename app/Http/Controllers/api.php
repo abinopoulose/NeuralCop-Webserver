@@ -64,7 +64,6 @@ class api extends Controller
     public function police_home()
     {
         $row = DB::table('threat')->where("status", '=', "forwarded")->get();
-        dd($row);
         return  json_encode($row);
     }
 
