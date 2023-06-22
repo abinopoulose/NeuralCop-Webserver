@@ -45,3 +45,24 @@ Route::post('/new_security', [App\Http\Controllers\HomeController::class, 'new_s
 Route::get('/delete_security/{id}', [App\Http\Controllers\HomeController::class, 'delete_security']);
 Route::get('/delete_police/{id}', [App\Http\Controllers\HomeController::class, 'delete_police']);
 
+
+Route::get('/false_positive/{id}', [App\Http\Controllers\HomeController::class, 'false_positive']);
+Route::get('/forward/{id}', [App\Http\Controllers\HomeController::class, 'forward']);
+
+
+
+
+
+Route::post('/api/login', [App\Http\Controllers\api::class, 'login'] );
+
+Route::get('/api/security_profile/{id}', [App\Http\Controllers\api::class, 'security_index'] );
+Route::get('/api/police_profile/{id}', [App\Http\Controllers\api::class, 'police_profile'] );
+
+Route::get('/api/security_home', [App\Http\Controllers\api::class, 'security_home'] );
+Route::get('/api/police_home', [App\Http\Controllers\api::class, 'police_home'] );
+
+Route::get('/api/false_positive/{id}', [App\Http\Controllers\api::class, 'false_positive'] );
+Route::get('/api/forward/{id}', [App\Http\Controllers\api::class, 'forward'] );
+
+
+

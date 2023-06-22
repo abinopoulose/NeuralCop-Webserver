@@ -24,7 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home',['url'=> "home" ]);
+
+        $threat_count= DB::table('threat')->count();
+        $pending_count= DB::table('threat')->where("status", '=', "pending")->count();
+        $forwarded_count= DB::table('threat')->where("status", '=', "forwarded")->count();
+        $false_count= DB::table('threat')->where("status", '=', "false")->count();
+
+        return view('home',['url'=> "home", 'threat_count'=> $threat_count , 'pending_count'=> $pending_count, 'forwarded_count'=> $forwarded_count, 'false_count'=> $false_count]);
     }
 
 
@@ -137,6 +143,35 @@ class HomeController extends Controller
     {
         $threat = DB::table('threat')->where("status", '=', "pending")->get();
         return view('detected',['url'=> "threat_detected" , 'threat'=> $threat]);
+
+
+    }
+
+
+
+
+    public function false_positive($id)
+    {
+        $affected = DB::table('threat') ->where('id',$id) ->update(['status' => "false"]);
+
+        $threat = DB::table('threat')->where("status", '=', "pending")->get();
+        return view('detected',['url'=> "threat_detected" , 'threat'=> $threat]);
+    }
+
+
+    public function forward($id)
+    {
+        $affected = DB::table('threat') ->where('id',$id) ->update(['status' => "forwarded"]);
+
+        $threat = DB::table('threat')->where("status", '=', "pending")->get();
+        return view('detected',['url'=> "threat_detected" , 'threat'=> $threat]);
+    }
+
+    
+    public function threat_forwarded()
+    {
+        $threat = DB::table('threat')->where("status", '=', "forwarded")->get();
+        return view('forwarded',['url'=> "threat_forwarded" , 'threat'=> $threat]);
 
 
     }
