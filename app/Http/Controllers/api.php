@@ -13,28 +13,31 @@ class api extends Controller
         $row=DB::table('login')->where("username", '=',  $request->username)->where("password", '=',  $request->password)->first();
         if(!is_null($row))
         {
-            $result->status=1;
-            $result->role=$row->usertype;
-            $result->userid=$row->login_id;
+            $result["status"]=1;
+            $result["role"]=$row->usertype;
+            $result["id"]=$row->login_id;
         }
         else
         {
-            $result->status=0;            
+            $result["status"]=0;          
         }
         return  json_encode($result);
 
     }
 
 
+
+
+
     public function security_profile($id)
     {
         $row=DB::table('user')->where("login_id", '=',  $id)->get();
         
-        $result->fname=$row->fname;
-        $result->lname=$row->lname;
-        $result->place=$row->place;
-        $result->phone=$row->phone;
-        $result->email=$row->email;
+        $result["fname"]=$row->fname;
+        $result["lname"]=$row->lname;
+        $result["place"]=$row->place;
+        $result["phone"]=$row->phone;
+        $result["email"]=$row->email;
         
         return  json_encode($result);
     }
@@ -43,11 +46,11 @@ class api extends Controller
     {
         $row=DB::table('police')->where("login_id", '=',  $id)->get();
         
-        $result->fname=$row->fname;
-        $result->lname=$row->lname;
-        $result->place=$row->place;
-        $result->phone=$row->phone;
-        $result->email=$row->email;
+        $result["fname"]=$row->fname;
+        $result["lname"]=$row->lname;
+        $result["place"]=$row->place;
+        $result["phone"]=$row->phone;
+        $result["email"]=$row->email;
         
         return  json_encode($result);
     }
@@ -58,13 +61,26 @@ class api extends Controller
     {
 
         $row = DB::table('threat')->where("status", '=', "pending")->get();
-        return  json_encode($row);
+        
+        $result["id"]=$row->id;
+        $result["longitude "]=$row->latitude ;
+        $result["latitude"]=$row->longitude ;
+        $result["file_location"]=$row->file_location;
+        $result["status"]=$row->status;
+
+        return  json_encode($result);
     }
 
     public function police_home()
     {
         $row = DB::table('threat')->where("status", '=', "forwarded")->get();
-        return  json_encode($row);
+        $result["id"]=$row->id;
+        $result["longitude "]=$row->latitude ;
+        $result["latitude"]=$row->longitude ;
+        $result["file_location"]=$row->file_location;
+        $result["status"]=$row->status;
+
+        return  json_encode($result);
     }
 
 
@@ -74,7 +90,14 @@ class api extends Controller
         $affected = DB::table('threat') ->where('id',$id) ->update(['status' => "false"]);
 
         $row = DB::table('threat')->where("status", '=', "pending")->get();
-        return  json_encode($row);
+        
+        $result["id"]=$row->id;
+        $result["longitude "]=$row->latitude ;
+        $result["latitude"]=$row->longitude ;
+        $result["file_location"]=$row->file_location;
+        $result["status"]=$row->status;
+
+        return  json_encode($result);
     }
 
 
@@ -83,8 +106,14 @@ class api extends Controller
         $affected = DB::table('threat') ->where('id',$id) ->update(['status' => "forwarded"]);
 
         $row = DB::table('threat')->where("status", '=', "pending")->get();
-        return  json_encode($row);
+        
+        $result["id"]=$row->id;
+        $result["longitude "]=$row->latitude ;
+        $result["latitude"]=$row->longitude ;
+        $result["file_location"]=$row->file_location;
+        $result["status"]=$row->status;
 
+        return  json_encode($result);
     }
 
 
