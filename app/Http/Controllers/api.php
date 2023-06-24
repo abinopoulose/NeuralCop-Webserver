@@ -31,7 +31,7 @@ class api extends Controller
 
     public function security_profile($id)
     {
-        $row=DB::table('user')->where("login_id", '=',  $id)->get();
+        $row=DB::table('user')->where("login_id", '=',  $id)->first();
         
         $result["fname"]=$row->fname;
         $result["lname"]=$row->lname;
@@ -44,7 +44,7 @@ class api extends Controller
 
     public function police_profile($id)
     {
-        $row=DB::table('police')->where("login_id", '=',  $id)->get();
+        $row=DB::table('police')->where("login_id", '=',  $id)->first();
         
         $result["fname"]=$row->fname;
         $result["lname"]=$row->lname;
@@ -62,23 +62,13 @@ class api extends Controller
 
         $row = DB::table('threat')->where("status", '=', "pending")->get();
         
-        $result["id"]=$row->id;
-        $result["longitude "]=$row->latitude ;
-        $result["latitude"]=$row->longitude ;
-        $result["file_location"]=$row->file_location;
-        $result["status"]=$row->status;
-
-        return  json_encode($result);
+        return  json_encode($row);
     }
 
     public function police_home()
     {
         $row = DB::table('threat')->where("status", '=', "forwarded")->get();
-        $result["id"]=$row->id;
-        $result["longitude "]=$row->latitude ;
-        $result["latitude"]=$row->longitude ;
-        $result["file_location"]=$row->file_location;
-        $result["status"]=$row->status;
+       
 
         return  json_encode($result);
     }
@@ -89,31 +79,17 @@ class api extends Controller
     {
         $affected = DB::table('threat') ->where('id',$id) ->update(['status' => "false"]);
 
-        $row = DB::table('threat')->where("status", '=', "pending")->get();
-        
-        $result["id"]=$row->id;
-        $result["longitude "]=$row->latitude ;
-        $result["latitude"]=$row->longitude ;
-        $result["file_location"]=$row->file_location;
-        $result["status"]=$row->status;
 
-        return  json_encode($result);
+        return  ;
     }
 
 
     public function forward($id)
     {
-        $affected = DB::table('threat') ->where('id',$id) ->update(['status' => "forwarded"]);
+        $result = DB::table('threat') ->where('id',$id) ->update(['status' => "forwarded"]);
 
-        $row = DB::table('threat')->where("status", '=', "pending")->get();
-        
-        $result["id"]=$row->id;
-        $result["longitude "]=$row->latitude ;
-        $result["latitude"]=$row->longitude ;
-        $result["file_location"]=$row->file_location;
-        $result["status"]=$row->status;
 
-        return  json_encode($result);
+        return ;
     }
 
 

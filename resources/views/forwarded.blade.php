@@ -43,9 +43,9 @@
                     </div>
                     <div >
                     <div class="card-header-action row justify-content-around">
-                    <a href="#" class="btn btn-danger" style="width:100%;">
+                      <div class="btn btn-danger" style="width:100%;">
                             Status: Forwarded to Police
-                        </a>
+                      </div>
                     </div>
                     </div>
                   </div>
