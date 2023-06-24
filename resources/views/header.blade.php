@@ -40,7 +40,7 @@
         </div>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown"
-              class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{ asset('admin-assets/img/user.png') }}"
+              class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{ asset('/images/KUTTUU.jpg') }}"
                 class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
               <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
@@ -58,9 +58,9 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="{{ asset('images/img.jpg') }}" class="header-logo" /> <span
+            <a href="#"> <img alt="image" src="{{ asset('images/img.jpg') }}" class="header-logo rounded" /> <span
                 class="logo-name">NeuralCop</span>
-            </a>
+              </a>
           </div>
           <ul class="sidebar-menu">
            

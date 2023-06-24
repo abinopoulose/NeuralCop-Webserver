@@ -4,16 +4,16 @@
 
 <section class="section">
 
-  <div class="row ">
+  <div class="row " style="text-align:center;">
    
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-4">
               <div class="card">
                 <div class="card-statistic-4">
                   <div class="align-items-center justify-content-between">
                     <div class="row ">
                       <div class="col-12 ">
-                        <div class="card-content">
-                          <h5 class="font-15"> Threats Detected</h5>
+                        <div class="card-content" >
+                          <h5 class="font-15" > Threats Detected</h5>
                           <h2 class="mb-3 font-18 col-black">{{$threat_count}}</h2>
                           
                         </div>
@@ -24,7 +24,7 @@
               </div>
             </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-4">
               <div class="card">
                 <div class="card-statistic-4">
                   <div class="align-items-center justify-content-between">
@@ -42,7 +42,7 @@
               </div>
             </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-4">
               <div class="card">
                 <div class="card-statistic-4">
                   <div class="align-items-center justify-content-between">
@@ -60,15 +60,33 @@
               </div>
             </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-4">
               <div class="card">
                 <div class="card-statistic-4">
                   <div class="align-items-center justify-content-between">
                     <div class="row ">
                       <div class="col-12 ">
                         <div class="card-content">
-                          <h5 class="font-15"> Pending</h5>
+                          <h5 class="font-15"> Pending Cases</h5>
                           <h2 class="mb-3 font-18 col-orange">{{$pending_count}}</h2>
+                       
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="card">
+                <div class="card-statistic-4">
+                  <div class="align-items-center justify-content-between">
+                    <div class="row ">
+                      <div class="col-12 ">
+                        <div class="card-content">
+                          <h5 class="font-15"> Resolved Cases</h5>
+                          <h2 class="mb-3 font-18 col-blue">{{$resolved_count}}</h2>
                        
                         </div>
                       </div> 
@@ -79,5 +97,14 @@
             </div>
   </div>
               
+
+
+  <style>
+    .mb-3, .my-3 {
+    margin-top: 1rem !important;
+    }
+  </style>
+
+
 </section>
 @include('footer') 

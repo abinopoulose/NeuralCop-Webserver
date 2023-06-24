@@ -48,6 +48,8 @@ Route::get('/delete_police/{id}', [App\Http\Controllers\HomeController::class, '
 
 Route::get('/false_positive/{id}', [App\Http\Controllers\HomeController::class, 'false_positive']);
 Route::get('/forward/{id}', [App\Http\Controllers\HomeController::class, 'forward']);
+Route::get('/resolved/{id}', [App\Http\Controllers\HomeController::class, 'resolved']);
+
 
 
 
