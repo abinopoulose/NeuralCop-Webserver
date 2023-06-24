@@ -55,7 +55,7 @@ Route::get('/forward/{id}', [App\Http\Controllers\HomeController::class, 'forwar
 
 Route::post('/api/login', [App\Http\Controllers\api::class, 'login'] );
 
-Route::get('/api/security_profile/{id}', [App\Http\Controllers\api::class, 'security_index'] );
+Route::get('/api/security_profile/{id}', [App\Http\Controllers\api::class, 'security_profile'] );
 Route::get('/api/police_profile/{id}', [App\Http\Controllers\api::class, 'police_profile'] );
 
 Route::get('/api/security_home', [App\Http\Controllers\api::class, 'security_home'] );
